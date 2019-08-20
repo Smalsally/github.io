@@ -58,6 +58,14 @@ vue知识点：
 3、vue.js的两个核心是什么？
    答：数据驱动、组件系统
    
+ 其他知识点：
+ 
+  1、CSS中link 和@import的区别是？
+  答：. link属于HTML标签，而@import是CSS提供的;
+      . 页面被加载时，link会同时被加载, 而@import被引用的CSS会等到引用它的CSS文件被加载完再加载;
+      . @import是css2.1后提出的(ie5以上才能识别)，而link是不存在兼容问题；
+      . js操作DOM，可以使用link改变样式，无法使用@import的方式使用样式
+   
    
    
    
