@@ -29,13 +29,17 @@ TCP三次握手：
    第三次握手： 服务器端确认客服端收到了自己发送的报文段；
 
 get/post的区别：
-   . get数据是存放在url之后，以？分割url和传输数据，参数之间以&相连； post方法是把提交的数据放在http包的Body中;
+   . get是从服务器上获取数据，post是像服务器传送数据；
+   
+   . get请求可以将查询字符串参数追加到url的末尾,post是放在请求体中；
+   
+   . get请求可以被浏览器缓存、收藏、记录，post不会；
    
    . get提交的数据大小有限制，（因为浏览器对url的长度有限制），post的方法提交的数据没有限制;
    
    . get需要request.queryString来获取变量的值，而post方式通过request.from来获取变量的值;
    
-   . get的方法提交数据，会带来安全问题，比如登录一个页面，通过get的方式提交数据，用户名和密码就会出现在url上;
+   . get的方法提交数据，会带来安全问题，比如登录一个页面，通过get的方式提交数据，用户名和密码就会出现在url上,post比get安全性更高;
    
    
 vue知识点：
@@ -58,6 +62,18 @@ vue知识点：
 3、vue.js的两个核心是什么？
    答：数据驱动、组件系统
    
+4、 es6有哪些新语法，和es5有什么区别？
+   答：. 新增let、const变量，箭头函数，模板字符串，class类，模块化，promise；
+       . ES5 reuqire,react,createclass
+       
+5、promise:是一个对象，可以获取异步操作的消息，有三种状态：pending(进行中)，resolved(成功), rejected(失败）,一旦状态改变（从pending变为Resolved和从pending变为Rejected),就不会再变。
+   promise 对象用then方法，有两个回调函数作为参数，第一个是成功时的回调，第二个是失败时的回调（可选的），两个函数都接受promise对象传出的对象作为参数.
+   Promise对象.then(function(){
+   // success
+   },function(){
+   //failure
+   });
+   
  其他知识点：
  
   1、CSS中link 和@import的区别是？
@@ -65,6 +81,16 @@ vue知识点：
       . 页面被加载时，link会同时被加载, 而@import被引用的CSS会等到引用它的CSS文件被加载完再加载;
       . @import是css2.1后提出的(ie5以上才能识别)，而link是不存在兼容问题；
       . js操作DOM，可以使用link改变样式，无法使用@import的方式使用样式
+      
+  2、判断数组有哪些方法？
+  答：. a instanceof Array;
+      . a.constructor == Array;
+      . Object.protype.toString.call(a) == [Object Array]
+      
+  3、webpack的理解，和gulp有什么不同？
+  答：. webpack是模块打包工具，会分析模块间的依赖关系，然后使用Loaders处理他们，最后生成一个优化并且合并后的静态资源;
+      . gulp是前端自动化工具，能够优化前端工作流程，比如文件合并压缩
+
    
    
    
