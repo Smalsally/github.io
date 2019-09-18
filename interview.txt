@@ -83,8 +83,65 @@ vue知识点：
      '^/api': '' //重写接口，去掉/api
     }
 }
-配置完之后需要重启下项目 npm run dev，重启之后，就可以调用，实现跨域了
- 
+配置完之后需要重启下项目 npm run dev，重启之后，就可以调用，实现跨域了（参考链接地址：https://www.cnblogs.com/zlfProgrammer/p/7997936.html）
+
+7、vue 设置每个页面的title
+  答：由于vue文件中只有一个Index.html 文件，title 显示需要通过vue-router来设置
+  1：router目录中的index.js里面添加meta属性
+  export default new Router({
+    // mode: 'history',
+  routes: [
+      {
+      path: '/',
+      name: 'Home',
+      component: function(resolve){ require(['../components/model/index_home.vue'],resolve)},
+      meta: {
+        title: '锦穗'
+      }
+    },{
+        //腕表
+      path:'/watchPage',
+      name:'watchPage',
+      component:function(resolve){ require(['../components/model/watchPage/watchPage.vue'],resolve)},
+      meta: {
+        title: '腕表'
+      }
+    }]
+})
+ 2：在main.js  在每一个meta里面设置页面的title名字，最后在遍历
+ router.beforeEach((to, from, next) => {
+  /* 路由发生变化修改页面title */
+  if (to.meta.title) {
+    document.title = to.meta.title
+  }
+  next()
+})
+Vue.beforeEach(function(to,form,next){}) /*在跳转之前执行*/
+Vue.afterEach(function(to,form))/*在跳转之后判断*/
+在路由跳转的时候，我们需要一些权限判断或者其他操作。这个时候就需要使用路由的钩子函数。
+beforeEach函数有三个参数：to:router即将进入的路由对象； from:当前导航即将离开的路由； next:Function,进行管道中的一个钩子，如果执行完了，则导航的状态就是 confirmed （确认的）；否则为false，终止导航。
+afterEach函数不用传next()函数；
+
+8、Vue-router 中hash模式和history模式的区别？
+   答：hash模式url里面永远带着#号，我们在开发当中默认使用这个模式。那么什么时候要用history模式呢？如果用户考虑url的规范那么就需要使用history模式，因为history模式没有#号，是个正常的url适合推广宣传。当然其功能也有区别，比如我们在开发app的时候有分享页面，那么这个分享出去的页面就是用vue或是react做的，咱们把这个页面分享到第三方的app里，有的app里面url是不允许带有#号的，所以要将#号去除那么就要使用history模式，但是使用history模式还有一个问题就是，在访问二级页面的时候，做刷新操作，会出现404错误，那么就需要和后端人配合让他配置一下apache或是nginx的url重定向，重定向到你的首页路由上就ok啦。
+
+                         hash与history的区别
+ 	          hash	                 history
+url显示:	  有#，很Low	             无#，好看
+回车刷新:	可以加载到hash值对应页面	  一般就是404掉了
+支持版本:	支持低版本浏览器和IE浏览器	HTML5新推出的API（pushState与replaceState）
+
+总结：
+hash模式其实是利用了window可以监听onhashchange事件，也就是说你的url中的哈希值（#后面的值）如果有变化，前端是可以做到监听并做一些响应，这么一来，即使前端并没有发起http请求他也能够找到对应页面的代码块进行按需加载。
+history模式里面的2个api作用就是可以将url替换并且不刷新页面,http并没有去请求服务器该路径下的资源，一旦刷新就会显示404。这就需要服务器端做处理，将不存在的路径请求重定向到入口文件（index.html）。
+pushState方法不会触发页面刷新，只是导致history对象发生变化，地址栏会有反应。
+
+传统的路由指的是：当用户访问一个url时，对应的服务器会接收这个请求，然后解析url中的路径，从而执行对应的处理逻辑。这样就完成了一次路由分发。
+而前端路由是不涉及服务器的，是前端利用hash或者HTML5的history API来实现的，一般用于不同内容的展示和切换。
+
+注意：history模式下，build之后本地 index.html 打开是无效的。 hash模式下，build之后本地 index.html 打开正常！
+
+
    
  其他知识点：
  
