@@ -74,6 +74,18 @@ vue知识点：
    //failure
    });
    
+ 6、如何实现vue前端跨域，用proxyTable解决
+    答：打开config下面的index.js，找到proxyTable，添加以下代码即可：
+    '/api': { //替换代理地址名称
+      target: 'http://api.douban.com/', //代理地址
+     changeOrigin: true, //可否跨域
+     pathRewrite: {
+     '^/api': '' //重写接口，去掉/api
+    }
+}
+配置完之后需要重启下项目 npm run dev，重启之后，就可以调用，实现跨域了
+ 
+   
  其他知识点：
  
   1、CSS中link 和@import的区别是？
