@@ -155,16 +155,34 @@ pushState方法不会触发页面刷新，只是导致history对象发生变化�
       . js操作DOM，可以使用link改变样式，无法使用@import的方式使用样式
       
   2、判断数组有哪些方法？
-  答：. a instanceof Array;
-      . a.constructor == Array;
-      . Object.protype.toString.call(a) == [Object Array]
+  答：1、 instanceof 操作符判断 
+      用法：arr instanceof Array； 
+      instanceof 主要是用来判断某个实例是否属于某个对象
+      例如：let arr = [];
+           console.log(arr instanceof Array);  // true
+      2、对象构造函数的 constructor判断
+      用法：arr.constructor === Array;
+      例如：let arr = [];
+           console.log(arr.constructor === Array); // true
+      3、Array 原型链上的 isPrototypeOf
+      用法：Array.prototype.isPrototypeOf(arr)
+      例如：let arr = [];
+           console.log(Array.prototype.isPrototypeOf(arr)); // true
+      4、Object.prototype.toString
+      用法：Object.prototype.toString.call(arr) === '[object Array]'
+     例如：let arr = [];
+          console.log(Object.prototype.toString.call(arr) === '[object Array]'); // true
       
   3、webpack的理解，和gulp有什么不同？
   答：. webpack是模块打包工具，会分析模块间的依赖关系，然后使用Loaders处理他们，最后生成一个优化并且合并后的静态资源;
       . gulp是前端自动化工具，能够优化前端工作流程，比如文件合并压缩。
       
-   4、 什么是作用域？
+  4、 什么是作用域？
     答：作用域分为全局作用域和局部作用域（也就是全局变量和局部变量），在es6语法中还增加了块级作用域。
+   
+  5、什么是事件冒泡？
+  从事件源朝父元素一直到根元素（html），当某个元素的某类型事件被触发时，它的父元素的同类型事件也会被触发，一直触发到根元素上。
+  
 
    
    
