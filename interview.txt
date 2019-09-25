@@ -208,4 +208,16 @@ pushState方法不会触发页面刷新，只是导致history对象发生变化�
    以及ajax重复调用问题。
    最常见的一些需要节流的事件：onresize，scroll，mousemove ,mousehover，因为这些事件会在页面中频繁被触发。
    
+   10、对JSON的了解？
+    答：全称 JavaScript Object Notation
+    两个函数：1. JSON.parse(str)   解析JSON字符串，把JSON字符串变成JavaScript值或对象；
+             2、JSON.stringify(obj)   将一个JavaScript值(对象或者数组)转换为一个 JSON字符串；
+    eval('('＋json＋')')  用eval方法注意加括号 而且这种方式更容易被攻击
+    
+    11、JS延迟加载的方式有哪些？
+     答：JS的延迟加载有助于提高页面的加载速度。
+         defer和async、动态创建DOM方式（用得最多）、按需异步载入JS
+         defer：延迟脚本。立即下载，但延迟执行（延迟到整个页面都解析完毕后再运行），按照脚本出现的先后顺序执行。
+         async：异步脚本。下载完立即执行，但不保证按照脚本出现的先后顺序执行。
+   
    
