@@ -220,4 +220,10 @@ pushState方法不会触发页面刷新，只是导致history对象发生变化�
          defer：延迟脚本。立即下载，但延迟执行（延迟到整个页面都解析完毕后再运行），按照脚本出现的先后顺序执行。
          async：异步脚本。下载完立即执行，但不保证按照脚本出现的先后顺序执行。
    
-   
+   12、加法操作表：
+       Number + Number -> 加法运算
+       Boolean + Number -> 加法 (如： ture + 0 = 1)
+       Boolean + Boolean -> 加法 （如：true + true = 2）
+       Number + String -> 连接
+       String + Boolean -> 连接
+       String + String -> 连接
