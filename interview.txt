@@ -259,9 +259,18 @@ pushState方法不会触发页面刷新，只是导致history对象发生变化�
    答：bindtap不会阻止冒泡事件，catchtap可以阻止冒泡事件；
 
   3、简述下 wx.navigateTo(), wx.redirectTo(), wx.switchTab(), wx.navigateBack(), wx.reLaunch()的区别？
-  答：. wx.navigateTo()：保留当前页面，跳转到应用内的某个页面。但是不能跳到 tabbar 页面;
-      . wx.redirectTo()：关闭当前页面，跳转到应用内的某个页面。但是不允许跳转到 tabbar 页面;
-      . wx.switchTab()：跳转到 abBar 页面，并关闭其他所有非 tabBar 页面;
-      . wx.navigateBack()关闭当前页面，返回上一页面或多级页面。可通过 getCurrentPages() 获取当前的页面栈，决定需要返回几层;
-      . wx.reLaunch()：关闭所有页面，打开到应用内的某个页面;
+   答：. wx.navigateTo()：保留当前页面，跳转到应用内的某个页面。但是不能跳到 tabbar 页面;
+       . wx.redirectTo()：关闭当前页面，跳转到应用内的某个页面。但是不允许跳转到 tabbar 页面;
+       . wx.switchTab()：跳转到 abBar 页面，并关闭其他所有非 tabBar 页面;
+       . wx.navigateBack()关闭当前页面，返回上一页面或多级页面。可通过 getCurrentPages() 获取当前的页面栈，决定需要返回几层;
+       . wx.reLaunch()：关闭所有页面，打开到应用内的某个页面;
       
+   4、 小程序页面间有哪些传递数据的方法？
+     答：. 使用全局变量实现数据传递;
+         . 页面跳转或重定向时，使用url带参数传递数据;
+         . 使用组件模板 template传递参数;
+         . 使用缓存传递参数;
+         . 使用数据库传递数据;
+         
+   5、 请谈谈小程序的双向绑定和vue的异同？
+     答： 大体相同。 但小程序直接用this.data属性是不可以同步到视图的，必须调用this.setData()方法。  
