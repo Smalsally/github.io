@@ -128,7 +128,10 @@ Vue.beforeEach(function(to,form,next){}) /*在跳转之前执行*/
 Vue.afterEach(function(to,form))/*在跳转之后判断*/
 在路由跳转的时候，我们需要一些权限判断或者其他操作。这个时候就需要使用路由的钩子函数。
 beforeEach函数有三个参数：to:router即将进入的路由对象； from:当前导航即将离开的路由； next:Function,进行管道中的一个钩子，如果执行完了，则导航的状态就是 confirmed （确认的）；否则为false，终止导航。
-afterEach函数不用传next()函数；
+afterEach函数不用传next()函数； 
+
+ 什么是vue生命周期？
+  答：vue实例从创建到销毁的过程，就是生命周期。从开始创建、初始化数据、编译模板、挂载dom->渲染、更新->渲染、销毁等一系列过程，称为vue的生命周期。
 
 8、Vue-router 中hash模式和history模式的区别？
    答：hash模式url里面永远带着#号，我们在开发当中默认使用这个模式。那么什么时候要用history模式呢？如果用户考虑url的规范那么就需要使用history模式，因为history模式没有#号，是个正常的url适合推广宣传。当然其功能也有区别，比如我们在开发app的时候有分享页面，那么这个分享出去的页面就是用vue或是react做的，咱们把这个页面分享到第三方的app里，有的app里面url是不允许带有#号的，所以要将#号去除那么就要使用history模式，但是使用history模式还有一个问题就是，在访问二级页面的时候，做刷新操作，会出现404错误，那么就需要和后端人配合让他配置一下apache或是nginx的url重定向，重定向到你的首页路由上就ok啦。
