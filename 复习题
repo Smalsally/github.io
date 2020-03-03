@@ -85,6 +85,8 @@ vue知识点：
        3、箭头函数的this永远指向其上下文的this（指向的是定义它的对象，而不是使用时所在的对象），任何方法都改变不了其指向，如 call(), bind(), apply()；
        4、普通函数的this指向调用它的那个对象。
        
+   call()方法返回的结果是打散的参数，apply()返回的是数组，bind（）返回的是函数
+       
 5、promise:是一个对象，可以获取异步操作的消息，有三种状态：pending(进行中)，resolved(成功), rejected(失败）,一旦状态改变（从pending变为Resolved和从pending变为Rejected),就不会再变。
    promise 对象用then方法，有两个回调函数作为参数，第一个是成功时的回调，第二个是失败时的回调（可选的），两个函数都接受promise对象传出的对象作为参数.
    Promise对象.then(function(){
@@ -230,6 +232,10 @@ pushState方法不会触发页面刷新，只是导致history对象发生变化�
     答：js内置对象分为数据封装类对象和其他对象
         数据封装类对象：String，Boolean，Number，Array，和Object;
         其他对象：Function，Arguments，Math，Date，RegExp，Error
+        
+   js内置函数有哪些？
+     大致分五类： 常规函数，数组函数，日期函数，字符串函数，数学函数；
+     比如： alert函数、isNAN函数、parseInt、parseFloat函数等
          
   2、判断数组有哪些方法？
   答：1、 instanceof 操作符判断 
