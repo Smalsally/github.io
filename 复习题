@@ -158,6 +158,34 @@ afterEach函数不用传next()函数；
 
  什么是vue生命周期？
   答：vue实例从创建到销毁的过程，就是生命周期。从开始创建、初始化数据、编译模板、挂载dom->渲染、更新->渲染、销毁等一系列过程，称为vue的生命周期。
+  
+vue生命周期的作用是什么？
+  它的生命周期中有多个事件钩子，让我们在控制整个vue实例的过程中更容易形成好的逻辑。
+  
+ vue双向数据绑定的原理？
+   就是利用object.defineProperty()这个方法重新定义对象，获取属性值(get)和设置属性值(set)的操作来实现的。
+   
+ mvvm的理解？
+  Model代表数据模型 （也可以在Model中定义数据修改和操作的业务逻辑），
+  View 代表ui视图 （它负责将数据模型转化成ui展现出来）
+  ViewModel 负责监听数据的改变和控制视图的更新，处理用户交互的。在 Mvvm 架构下，View和Model之间并没有直接联系，而是通过ViewModel进行交互，Model和
+  ViewModel之间的交互是双向的，因此View数据的变化会同步到Model中，而Model数据的变化也会立即反应到View上。
+这种模式实现了 Model 和 View的数据自动同步，因此开发者只需要专注对数据的维护操作即可，而不需要自己操作dom。
+  
+  
+ v-if和v-show区别？
+  v-if 按照条件是否渲染；v-show 是display的block或none
+  
+ 怎么定义vue-router的动态路由？怎么获取传过来的值？
+   在router目录下的index.js文件中，对pash 属性加上/:id, 使用router对象的params.id获取。
+   
+ Vue中如何监控某个属性值的变化？
+  可以通过 computed 来实现。利用计算属性的特性来实现的，当依赖改变时，便会重新计算一个新值。
+  
+ 简述vue的响应式原理？
+   当一个VUE实例创建时，vue会遍历data选项的属性，用object.defineProperty将它们转为 getter/setter 并且在内部追踪相关依赖，在属性被访问和修改时通知
+   变化。每个组件实例都有相应的watcher 程序实例，它会在组件渲染的过程中把属性记录为依赖，之后当依赖项的setter被调用时，会通知watcher重新计算，从而使
+   它关联的组件得以更新。
 
 8、Vue-router 中hash模式和history模式的区别？
    答：hash模式url里面永远带着#号，我们在开发当中默认使用这个模式。那么什么时候要用history模式呢？如果用户考虑url的规范那么就需要使用history模式，因为history模式没有#号，是个正常的url适合推广宣传。当然其功能也有区别，比如我们在开发app的时候有分享页面，那么这个分享出去的页面就是用vue或是react做的，咱们把这个页面分享到第三方的app里，有的app里面url是不允许带有#号的，所以要将#号去除那么就要使用history模式，但是使用history模式还有一个问题就是，在访问二级页面的时候，做刷新操作，会出现404错误，那么就需要和后端人配合让他配置一下apache或是nginx的url重定向，重定向到你的首页路由上就ok啦。
