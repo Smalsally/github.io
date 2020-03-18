@@ -435,6 +435,24 @@ pushState方法不会触发页面刷新，只是导致history对象发生变化�
        500  服务器内部错误，无法完成请求
        505  服务器不支持请求的HTTP协议的版本，无法完成处理
        
+   14、for…in与for…of的区别？
+     例：遍历数组                                                  遍历对象                                                         
+         var arr1 = ['a', 'b', 'c'];                             var myObject = {"a": 1, "b": 2, "c": 3};
+         arr1.name="数组"                                         for (let key in myObject) {                                                                    console.log(key);                                  }                                     
+         for (var i in arr1) {                                        console.log(key)  //a,b,c
+           console.log(i)  // 0, 1, 2,name                         }
+         };                                                      
+	      var arr2 = ['a', 'b', 'c'];                               for (let key of myObject) {
+        arr1.name="数组"                                              console.log(key)  // myobject is not iterable
+        for (var i of arr2) {                                      }
+          console.log(i) // a, b, c,undefined
+        };
+        
+     区别点：
+      for in遍历的是数组的索引（即键名）；如果遍历的是对象返回的则是对象的key值；如果遍历的是数组返回的则是数组的下标(key)；
+      for of 遍历的是数组元素的值；但是不能遍历对象，因为没有迭代器对象；与forEach()不同的是，它可以正确响应break、continue和return语句；
+       
+       
    
    
    
