@@ -4,7 +4,7 @@ Less 是一门 CSS 预处理语言，它扩充了 CSS 语言，增加了诸如�
 
 2、cookie数据始终在同源的http请求中携带，在浏览器和服务器来回传递，里面存放着session-id、sessionStorage，localStorage仅在本地保存；
 
-3、大小限制区别，cookie数据不超过4kb，localStorage在谷歌浏览中2.6MB；
+3、大小限制区别，每条cookie长度不能超过4kb（否则会被截掉），localStorage在谷歌浏览中2.6MB；
 
 4、数据有效期不同，cookie在设置的（服务器设置）有效期内有效、不管窗口和浏览器关闭，sessionStorage仅在当前浏览器窗口关闭前有效、关闭即销毁（临时储存），localStorage始终有效（除非主动删除数据）；
 
@@ -265,6 +265,22 @@ pushState方法不会触发页面刷新，只是导致history对象发生变化�
    
  其他知识点：
  
+ CSS部分：
+ 
+   css选择符有哪些？哪些属性可以继承？
+    1.id选择器（ # myid）
+    2.类选择器（.myclassname）
+    3.标签选择器（div, h1, p）
+    4.相邻选择器（h1 + p）
+    5.子选择器（ul > li）
+    6.后代选择器（li a）
+    7.通配符选择器（ * ）
+    8.属性选择器（a[rel = "external"]）
+    9.伪类选择器（a: hover, li:nth-child）
+    可继承的样式： font-size font-family color, text-indent（首行文本的缩进）;
+    不可继承的样式：border padding margin width height ;
+
+ 
   1、CSS中link 和@import的区别是？
   答：. link属于HTML标签，而@import是CSS提供的;
       . 页面被加载时，link会同时被加载, 而@import被引用的CSS会等到引用它的CSS文件被加载完再加载;
@@ -284,6 +300,18 @@ pushState方法不会触发页面刷新，只是导致history对象发生变化�
     使用 display:none属性后，HTML元素（对象）的宽度、高度等各种属性值都将“丢失”;
     而使用visibility:hidden属性后，元素虽然不在页面中显示，但它所占据的空间位置仍然存在；也就是说它仍具有高度、宽度等属性值；
     
+   position的absolute与fixed共同点与不同点：
+     共同点： 1、改变行内元素的呈现方式，display被置为block；
+             2、让元素脱离文档流，不占据空间；
+	     3、默认会覆盖到非定位元素上
+     不同点： absolute的”根元素“是可以设置的，而fixed的”根元素“固定为浏览器窗口。当你滚动网页时，fixed元素与浏览器窗口之间的距离是不变的；
+     
+     
+     
+   
+  JS部分：
+  
+   
   js内置对象有哪些？
     答：js内置对象分为数据封装类对象和其他对象
         数据封装类对象：String，Boolean，Number，Array，和Object;
@@ -362,10 +390,7 @@ pushState方法不会触发页面刷新，只是导致history对象发生变化�
     arr.forEach(function(item,index,arr){  // 三个参数分别为：当前元素，索引值，加入一个新数组
       // forEach()方法不会返回数据
       // 使用场景：并不打算改变数据的时候，而只是想用数据做一些事情 ，比如存入数据库或则打印出来。
- })
-
- 
-                  
+ })            
       
   3、webpack的理解，和gulp有什么不同？
   答：. webpack是模块打包工具，会分析模块间的依赖关系，然后使用Loaders处理他们，最后生成一个优化并且合并后的静态资源;
@@ -377,8 +402,8 @@ pushState方法不会触发页面刷新，只是导致history对象发生变化�
   5、什么是事件冒泡？
   从事件源朝父元素一直到根元素（html），当某个元素的某类型事件被触发时，它的父元素的同类型事件也会被触发，一直触发到根元素上。
   
-     什么是闭包？
-     答：能够读取其他函数内部变量的函数。
+  什么是闭包？
+  答：能够读取其他函数内部变量的函数。
 
   6、javascript公有属性和私有属性区别？
    答：声明一个函数，在函数内通过this声明的属性就是公有属性，用var声明的属性就是私有属性。
@@ -406,7 +431,7 @@ pushState方法不会触发页面刷新，只是导致history对象发生变化�
    最常见的一些需要节流的事件：onresize，scroll，mousemove ,mousehover，因为这些事件会在页面中频繁被触发。
    
    10、对JSON的了解？
-    答：全称 JavaScript Object Notation
+    答：JSON(全称 JavaScript Object Notation) 是一种轻量级的数据交换格式；
     两个函数：1. JSON.parse(str)   解析JSON字符串，把JSON字符串变成JavaScript值或对象；
              2、JSON.stringify(obj)   将一个JavaScript值(对象或者数组)转换为一个 JSON字符串；
     eval('('＋json＋')')  用eval方法注意加括号 而且这种方式更容易被攻击
@@ -451,6 +476,18 @@ pushState方法不会触发页面刷新，只是导致history对象发生变化�
      区别点：
       for in遍历的是数组的索引（即键名）；如果遍历的是对象返回的则是对象的key值；如果遍历的是数组返回的则是数组的下标(key)；
       for of 遍历的是数组元素的值；但是不能遍历对象，因为没有迭代器对象；与forEach()不同的是，它可以正确响应break、continue和return语句；
+      
+    15、什么叫优雅降级和渐进增强？
+      优雅降级：如果用户使用的是老式浏览器，那么代码就会检查并确认它们是否能正常工作。由于IE盒模型布局问题，针对不同版本IE的hack
+               实践过优雅降级了,为那些无法支持功能的浏览器增加了候选方案，让它们在旧式浏览器上以某种形式降级体验，不至于完全失效.
+	       
+      渐进增强：从被所有浏览器支持的功能开始，逐步地添加那些只有新式浏览器才支持的功能，向页面增加无害于基础浏览器的额外样式和功能，
+               当浏览器支持时，它们会自动地呈现出来并发挥作用。
+      
+    16、网站重构的理解？
+       简单说就是在不改变UI的情况下，对网站进行优化，在扩展的同时保持一致的UI。
+      
+
        
        
    
