@@ -50,13 +50,20 @@
    8、小程序 组件和模板的区别？
        template主要是展示，方法则需要在调用的页面中定义；而component组件则有自己的业务逻辑，可以看做一个独立的page页面；
        （如果只是展示，使用template就足够了，如果涉及到的业务逻辑交互比较多，那就最好使用component组件了）。
-       ps: 由于模板只有wxml、wxss文件,因此模板中只用创建这两个文件就可以了。
-       使用name属性，作为模板的名字，然后在<template/> 内定义代码片段，template必须要写，例如 templateItem.wxml 中：
-     
+     ps: 由于模板只有wxml、wxss文件,因此模板中只用创建这两个文件就可以了。
+         使用name属性，作为模板的名字，然后在<template/> 内定义代码片段，template必须要写，例如 xx.wxml 中：
+         <template name="msgItem">    
+           <view class="content">我是模板的内容</view>
+         </template>
+        一个模板文件中可以有多个template,每个template均需定义name进行区分，页面调用的时候也是以name指向对应的template;
+       template模板没有配置文件(.json)和业务逻辑文件（.js）,所以template模板中的变量引用和业务逻辑事件都需要在引用页面的js文件中进行定义；
        
        
        
-
+       
+       
+       
+       
        
        
        
