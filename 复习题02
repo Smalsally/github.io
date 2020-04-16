@@ -22,7 +22,7 @@ token、cookie、session三者的理解：
 
     3、session是一类用来客户端和服务器之间保存状态的解决方案，会话完成被销毁（代表的就是服务器和客户端的一次会话过程）cookie中存放着sessionID，请求会发送这个id，sesion因为request对象而产生；
     
-
+	
 TCP三次握手：
    客服端发c起请求连接服务器端s确认，服务器端也发起连接确认客服端确认。
 
