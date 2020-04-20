@@ -120,7 +120,7 @@
   . Math.round  //四舍五入     例：var num = 1.4;console.log(Math.round(num)); // 1; var num =1.5; console.log(Math.round(num)) //2
   . Math.pow  // 用于求一个数的几次方 第一个参数是底数 第二个参数是指数  例：var num = Math.pow(2, 8); // 256
   . Math.max  //求所有参数中的最大值  例：var max = Math.max(1, 2, 56, 78, 99, 0, 46, 23); // 99
-  . Math.min  //求所有参数中的最大值  例：var max = Math.max(1, 2, 56, 78, 99, 0, 46, 23); // 1
+  . Math.min  //求所有参数中的最小值  例：var max = Math.max(1, 2, 56, 78, 99, 0, 46, 23); // 1
   
   什么是闭包？
   答：能够读取其他函数内部变量的函数。
