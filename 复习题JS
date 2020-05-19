@@ -150,6 +150,10 @@
    以及ajax重复调用问题。(缺点：重复调用会增加cpu的负担，加载比较慢会导致页面留白)
    最常见的一些需要节流的事件：onresize，scroll，mousemove ,mousehover，因为这些事件会在页面中频繁被触发。
    
+   什么是防抖？
+   答: 就是在一定的时间内事件只发生一次。比如你点击button按钮，一秒内无论你点击多少次，它都只会触发一次。
+    函数节流（throttle）与 函数防抖（debounce）都是为了限制函数的执行次数，以优化函数触发频率过高导致的响应速度跟不上触发频率，出现延迟，假死或卡顿的现象。
+   
    10、对JSON的了解？
     答：JSON(全称 JavaScript Object Notation) 是一种轻量级的数据交换格式；
     两个函数：1. JSON.parse(str)   解析JSON字符串，把JSON字符串变成JavaScript值或对象；
