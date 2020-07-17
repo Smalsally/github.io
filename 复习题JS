@@ -187,7 +187,7 @@
    14、for…in与for…of的区别？
      例：遍历数组                                                  遍历对象                                                         
          var arr1 = ['a', 'b', 'c'];                             var myObject = {"a": 1, "b": 2, "c": 3};
-         arr1.name="数组"                                         for (let key in myObject) {                                                                    console.log(key);                                  }                                     
+         arr1.name="数组"                                         for (let key in myObject) {                                 
          for (var i in arr1) {                                        console.log(key)  //a,b,c
            console.log(i)  // 0, 1, 2,name                         }
          };                                                      
