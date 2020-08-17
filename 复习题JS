@@ -26,7 +26,9 @@
         methods:{
             goTo(){
                 //直接跳转
-                this.$router.push('/testDemo');
+                this.$router.push('/testDemo');  //通过push进行跳转
+		this.$router.replace('/testDemo'); //指定跳转的地址
+		this.$router.go(-1);  //跳转到上一次浏览的页面
  
                 //带参数跳转
                 this.$router.push({path:'/testDemo',query:{setid:123}});   结果为：http://localhost:8080/#/testDemo?setid=123
@@ -36,6 +38,10 @@
         }
     }
 </script>
+
+ps:  $router.push和$router.replace的区别：
+    使用push方法的跳转会向 history 栈添加一个新的记录，当我们点击浏览器的返回按钮时可以看到之前的页面。
+    使用replace方法不会向 history 添加新记录，而是替换掉当前的 history 记录，即当replace跳转到的网页后，‘后退’按钮不能查看之前的页面。
 
    
   JS部分：
