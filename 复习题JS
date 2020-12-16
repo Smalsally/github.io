@@ -34,6 +34,9 @@
                 this.$router.push({path:'/testDemo',query:{setid:123}});   结果为：http://localhost:8080/#/testDemo?setid=123
                 this.$router.push({name:'test',params:{setid:111}});   结果为：http://localhost:8080/#/test/111
                 this.$router.push({params:{setid:111}});   结果为：http://localhost:8080/#/111 (注意和上一个区别)
+		
+		区别： 使用path路径跳转，传参必须使用query，使用命名视图跳转 params和query都可以；
+		      使用params如果路由路径上没有参数接收 刷新页面数据会丢失，使用query会把参数显示在地址栏路径上，此时刷新数据数据不会丢失
             }
         }
     }
