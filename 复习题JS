@@ -284,6 +284,10 @@ ps:  $router.push和$router.replace的区别：
     
     减少或者避免 layout(布局)，paint(绘制) 可以让页面不卡顿，动画效果更加流畅。
    
+   21、移动端1px问题？
+    原因：由于不同的手机有不同的像素密度导致的。如果移动显示屏的分辨率始终是普通屏幕的2倍，1px的边框在devicePixelRatio=2的移动显示屏下会显示成2px，所以在高清瓶下看着1px总是感觉变胖了；
+    
+    解决方法：https://www.jianshu.com/p/3a262758abcf
        
        
    
