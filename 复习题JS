@@ -67,7 +67,8 @@ ps:  $router.push和$router.replace的区别：
       用法：Object.prototype.toString.call(arr) === '[object Array]'
      例如：let arr = [];
           console.log(Object.prototype.toString.call(arr) === '[object Array]'); // true
-          
+      5、Array.isArray
+        用法：Array.isArray(arr)  // 此方法为es6新增的
           
    3、 js 数组API:
    
