@@ -9,7 +9,7 @@
         . onShow() 页面显示/切入前台时触发;
         . onReady() 页面初次渲染完成时触发。一个页面只会调用一次，代表页面已经准备妥当，可以和视图层进行交互
         . onHide() 页面隐藏/切入后台时触发。 如 navigateTo 或底部 tab 切换到其他页面，小程序切入后台等;
-        . onUnload() 页面卸载时触发。如 redirectTo 或 navigateBack 
+        . onUnload() 页面卸载时触发。如 redirectTo 或 navigateBack 存款
 
   2、bindtap和catchtap的区别是什么？
    答：bindtap不会阻止冒泡事件，catchtap可以阻止冒泡事件；
